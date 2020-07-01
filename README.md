@@ -1,68 +1,72 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A custom create-react-app template
 
-## Available Scripts
+### What's included
 
-In the project directory, you can run:
+- [tailwindcss](https://tailwindcss.com/)
+- [craco](https://github.com/gsoft-inc/craco)
+  - postcss-import
+  - autoprefixer
+  - css-nano
+  - tailwind
+- [Inter variable webfont](https://rsms.me/inter/)
+- prettier + pretty-quick at pre-commit via husky 
+- .editorconfig
+- npm-check-updates via script `yarn ncu`
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Adding the 3D package
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+To add the usual 3D package:
 
-### `yarn test`
+```bash
+yarn add threejs react-three-fiber drei react-spring@next
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- three.js
+- react-three-fiber 
+- react-spring 
+- drei
 
-### `yarn build`
+Here's a quick scene to copy-paste:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```jsx
+import React, { Suspense } from 'react';
+import { Canvas } from 'react-three-fiber'
+import { OrbitControls, StandardEffects, Box } from 'drei'
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+function App() {
+  return (
+    <Canvas
+      shadowMap
+      colorManagement
+      camera={{ position: [-4, 4, -4], far: 50 }}
+      style={{
+        background: "#121212"
+      }}
+    >
+      <ambientLight />
+      <spotLight
+        intensity={2}
+        position={[20, 20, 20]}
+        shadow-bias={-0.00005}
+        angle={Math.PI / 6}
+        shadow-mapSize-width={2048}
+        shadow-mapSize-height={2048}
+        castShadow
+      />
+      <Box position={[-3, 0, 0]} />
+      <Box />
+      <Box position={[3, 0, 0]} />
+      {console.log('test')}
+      <Suspense fallback={null}>
+        <StandardEffects
+          smaa
+          bloom={{ luminanceThreshold: 0.99 }} />
+      </Suspense>
+      <OrbitControls />
+    </Canvas>
+  );
+}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+export default App;
+```
