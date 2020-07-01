@@ -1,8 +1,9 @@
-import React from 'react';
+import React from "react";
 
 function App() {
   return (
-    <div className="
+    <div
+      className="
       h-screen 
       w-screen 
 
@@ -16,7 +17,8 @@ function App() {
       text-6xl
       font-display
       font-black
-    ">
+    "
+    >
       Hello world.
     </div>
   );

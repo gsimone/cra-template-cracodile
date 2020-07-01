@@ -1,45 +1,14 @@
 {
-  "name": "cracodile",
-  "version": "0.1.0",
-  "private": true,
+  "name": "cra-template-cracodile",
+  "version": "1.0.0",
+  "main": "template.json",
+  "repository": "git@github.com:gsimone/cracodile.git",
+  "author": "Gianmarco Simone <gianmarcosimone89@gmail.com>",
+  "license": "MIT",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.0",
-    "@testing-library/react": "^10.4.3",
-    "@testing-library/user-event": "^12.0.11",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
-  },
-  "scripts": {
-    "ncu": "npx npm-check-updates",
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "craco eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@craco/craco": "^5.6.4",
-    "autoprefixer": "^9.8.4",
-    "cssnano": "^4.1.10",
-    "postcss-import": "^12.0.1",
+    "husky": "^4.2.5",
     "prettier": "^2.0.5",
-    "pretty-quick": "^2.0.1",
-    "tailwindcss": "^1.4.6"
+    "pretty-quick": "^2.0.1"
   },
   "husky": {
     "hooks": {
