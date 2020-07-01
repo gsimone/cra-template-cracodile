@@ -1,6 +1,6 @@
 {
   "name": "cra-template-cracodile",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "template.json",
   "repository": "git@github.com:gsimone/cracodile.git",
   "author": "Gianmarco Simone <gianmarcosimone89@gmail.com>",
