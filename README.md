@@ -54,10 +54,7 @@ function App() {
         shadow-mapSize-height={2048}
         castShadow
       />
-      <Box position={[-3, 0, 0]} />
       <Box />
-      <Box position={[3, 0, 0]} />
-      {console.log('test')}
       <Suspense fallback={null}>
         <StandardEffects
           smaa
